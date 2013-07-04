@@ -1,0 +1,10 @@
+<%= @treasure.get('title') %>
+
+<% description = @treasure.get('description') %>
+<% if description: %>
+  <span class="description"><%= description %></span>
+<% end %>
+
+<% if @treasure.get('found'): %>
+  <span class="found">FOUND</span>
+<% end %>

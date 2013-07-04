@@ -1,0 +1,9 @@
+<h1>Scavenge</h1>
+
+<form id="new_treasure_form">
+  <input type="text" name="title" id="new_treasure_title">
+  <input type="submit" value="Add">
+</form>
+
+<ul id="treasures">
+</ul>

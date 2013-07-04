@@ -1,0 +1,1 @@
+class Scavenge.Models.Treasure extends Backbone.Model

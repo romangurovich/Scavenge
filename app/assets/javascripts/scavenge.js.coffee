@@ -5,7 +5,7 @@ window.Scavenge =
   Routers: {}
   initialize: ->
     new Scavenge.Routers.Treasures()
-    Backbone.history.start()
+    Backbone.history.start(pushState: true)
 
 $(document).ready ->
   Scavenge.initialize()

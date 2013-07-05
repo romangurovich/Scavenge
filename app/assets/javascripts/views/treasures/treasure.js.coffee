@@ -5,13 +5,19 @@ class Scavenge.Views.Treasure extends Backbone.View
   tagName: 'li'
 
   events:
-    'submit #new_treasure_form': 'createTreasure'
+    'click': 'showTreasure'
 
   initialize: ->
-    @it = 0
+    @model.on("change", @render, this)
+    @model.on("highlight", @highlight, this)
 
   render: ->
     this.$el.html(@template(treasure: @model))
-    @it += 1
-    console.log "rendered the item view #{@it} times"
     this
+
+  showTreasure: ->
+    Backbone.history.navigate("treasures/#{@model.get('id')}", true)
+
+  highlight: ->
+    $('.found').removeClass('highlight')
+    this.$('.found').addClass('highlight')

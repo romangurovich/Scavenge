@@ -8,22 +8,20 @@ class Scavenge.Views.TreasuresIndex extends Backbone.View
     'keypress #new_treasure_title': 'countLetters'
     'focus #new_treasure_title': 'showLetterCount'
     'blur #new_treasure_title': 'removeLetterCount'
+    'click #draw_found': 'drawFound'
 
   initialize: ->
     @collection.on('reset', @render, this)
     @collection.on('add', @appendTreasure, this)
-    @it = 0
 
   render: ->
     this.$el.html(@template(treasures: @collection))
     @collection.each(@appendTreasure)
-    @it += 1
-    console.log "rendered #{@it} times"
     this
 
-  appendTreasure: (treasure) ->
+  appendTreasure: (treasure) =>
     view = new Scavenge.Views.Treasure(model: treasure)
-    $('#treasures').append(view.render().el)
+    @$('#treasures').append(view.render().el)
 
 
   createTreasure: (event) ->
@@ -47,13 +45,13 @@ class Scavenge.Views.TreasuresIndex extends Backbone.View
     e.preventDefault()
     $(e.currentTarget).slideUp()
 
-  drawWinner: (e) ->
+  drawFound: (e) ->
     e.preventDefault()
-    @collection.drawWinner()
+    @collection.drawFound()
 
   countLetters: ->
     letters = $('#new_treasure_title').val().length + 1
-    $('.letter-count').text("letter count #{letters}")
+    $('.letter-count').text("letter count: #{letters}")
 
   showLetterCount: ->
     letters = $('#new_treasure_title').val().length

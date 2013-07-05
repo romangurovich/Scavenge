@@ -7,3 +7,5 @@
 
 <ul id="treasures">
 </ul>
+
+<button id="draw_found">Find treasure!</button>

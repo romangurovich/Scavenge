@@ -23,6 +23,7 @@ gem 'jquery-rails'
 
 gem 'backbone-on-rails'
 gem 'rspec-rails'
+gem 'gon'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
